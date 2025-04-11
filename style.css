@@ -1,0 +1,23 @@
+div.centering {
+    /*
+    display: inline-block;
+    text-align: left;
+    max-width: 1200px;
+    min-width: 400px;
+    */
+    width: 1200px;
+    margin: auto;
+}
+
+div.inline-video {
+    display : flex;
+    flex-direction: row;
+}
+
+h2 {
+    text-align: center;
+}
+
+p {
+    text-align: justify;
+}
