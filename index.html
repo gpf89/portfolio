@@ -3,8 +3,9 @@
   <head>
     <title>Portf-O-lio</title>
     <style>
-        div.container {
-            text-align: center;
+        div.centering {
+            display: inline-block;
+            text-align: left;
             max-width: 1200px;
             min-width: 400px;
         }
@@ -13,106 +14,105 @@
             display : flex;
             flex-direction: row;
         }
-        
-        ul.myList {
-            display: inline-block;
-            text-align: left;
-            max-width: 1200px;
-            min-width: 400px;
-        }
     </style>
   </head>
   <body>
 
-    <div class="container">
+    <div class="centering">
+        <article>
+
+
         <p>Party like it's 1999</p>
         <h3>Driving Simulator</h3>
-        <ul class="myList">
-            <li>Implemented vehicle lights. Took the data from the simulation compressed it (emergency blinkers are the combined left & right blinker) and communicated it it from the server to the client
-                where it controlled a custom shader via the RBGA channels. The periodic light state of the indicator lights was assigned a phase based on the vehicle's internal id effectively randomising
-                the timings.</li>
-                
-            <li>The task of interpolating position and speed between the sparse data of the simulation (every 0.2 seconds) has been done but the orientation of the vehicles followed the tangents of the splines.
-                This was a good 1st approximation. For vehicles dragging trailers a simplistic approach in which the midpoint of the rear axle(s) moved along the line connecting the the new position of the pivot of
-                the joint and the old position of the midpoint of the rear axle(s) between frames. However for the body of the vehicle a more involved turning circle based approach needed to be implemented in which
-                the wheels were taken to be paralell to the splines and the turning radius for each frame was determined by the intersection of the front and rear axles.
-                </li>
-                <div class="inline-video">
+        <p>
+            Implemented vehicle lights. Took the data from the simulation compressed it (emergency blinkers are the combined left & right blinker) and communicated it it from the server to the client
+            where it controlled a custom shader via the RBGA channels. The periodic light state of the indicator lights was assigned a phase based on the vehicle's internal id effectively randomising
+            the timings.
+        </p>
+            
+        <p>
+            The task of interpolating position and speed between the sparse data of the simulation (every 0.2 seconds) has been done but the orientation of the vehicles followed the tangents of the splines.
+            This was a good 1st approximation. For vehicles dragging trailers a simplistic approach in which the midpoint of the rear axle(s) moved along the line connecting the the new position of the pivot of
+            the joint and the old position of the midpoint of the rear axle(s) between frames. However for the body of the vehicle a more involved turning circle based approach needed to be implemented in which
+            the wheels were taken to be paralell to the splines and the turning radius for each frame was determined by the intersection of the front and rear axles.
+        </p>
+        <div class="inline-video">
 
-                    <video id ="kinematics_trailer" width="600" autoplay>
-                        <source src="kinematics_trailer_cropped_trimmed.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                    <video id ="kinematics_van" width="600" autoplay>
-                        <source src="kinematics_van_cropped.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                </div>
-                <br><br>
-                <button onclick="playKinematics()">Play/Pause</button>
-                <script> 
-                    var kinematics_trailer = document.getElementById("kinematics_trailer");
-                    var collision_after = document.getElementById("kinematics_van");
-                    
-                    function playKinematics() { 
-                        if (kinematics_trailer.paused) 
-                        kinematics_trailer.play(); 
-                        else 
-                        kinematics_trailer.pause();
-                        if (kinematics_van.paused) 
-                        kinematics_van.play(); 
-                        else 
-                        kinematics_van.pause(); 
-                    }
-                </script> 
-                
-            <li>The novelty of MXT's use of SUMO was as a real time interactive tool. On account of having to interpolate paths splines between the sparse data the client saw a game state 0.5sec behind that
-                of the simulation. As a result occasionally a traffic vehicle would drive through the driver whihc is a jarring experience in VR completely breaking immersivity and realism. We built a system
-                to detect impending collisions and slow the offending vehciles along their paths computed by the SUMO simulation with it being able to take input at runtime. I created the automated test scenes
-                and implemented the necessary communication between the simulation run on the server and the interactive visualisation run by the client while my colleague implemented collision detection. </li>
-                <div class="inline-video">
+            <video id ="kinematics_trailer" width="600" autoplay>
+                <source src="kinematics_trailer_cropped_trimmed.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <video id ="kinematics_van" width="600" autoplay>
+                <source src="kinematics_van_cropped.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <br><br>
+        <button onclick="playKinematics()">Play/Pause</button>
+        <script> 
+            var kinematics_trailer = document.getElementById("kinematics_trailer");
+            var collision_after = document.getElementById("kinematics_van");
+            
+            function playKinematics() { 
+                if (kinematics_trailer.paused) 
+                kinematics_trailer.play(); 
+                else 
+                kinematics_trailer.pause();
+                if (kinematics_van.paused) 
+                kinematics_van.play(); 
+                else 
+                kinematics_van.pause(); 
+            }
+        </script> 
+        
+        <p>
+            The novelty of MXT's use of SUMO was as a real time interactive tool. On account of having to interpolate paths splines between the sparse data the client saw a game state 0.5sec behind that
+            of the simulation. As a result occasionally a traffic vehicle would drive through the driver whihc is a jarring experience in VR completely breaking immersivity and realism. We built a system
+            to detect impending collisions and slow the offending vehciles along their paths computed by the SUMO simulation with it being able to take input at runtime. I created the automated test scenes
+            and implemented the necessary communication between the simulation run on the server and the interactive visualisation run by the client while my colleague implemented collision detection.
+        </p>
+        <div class="inline-video">
 
-                    <video id ="collision_before" width="600" autoplay>
-                        <source src="collision_before_trimmed.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                    <video id ="collision_after" width="600" autoplay>
-                        <source src="collision_after_trimmed.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                </div>
-                <br><br>
-                <button onclick="playCollision()">Play/Pause</button>
-                <script> 
-                    var collision_before = document.getElementById("collision_before");
-                    var collision_after = document.getElementById("collision_after");
-                    
-                    function playCollision() { 
-                        if (collision_before.paused) 
-                            collision_before.play(); 
-                        else 
-                            collision_before.pause();
-                        if (collision_after.paused) 
-                            collision_after.play(); 
-                        else 
-                            collision_after.pause(); 
-                    }
-                </script> 
+            <video id ="collision_before" width="600" autoplay>
+                <source src="collision_before_trimmed.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <video id ="collision_after" width="600" autoplay>
+                <source src="collision_after_trimmed.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <br><br>
+        <button onclick="playCollision()">Play/Pause</button>
+        <script> 
+            var collision_before = document.getElementById("collision_before");
+            var collision_after = document.getElementById("collision_after");
+            
+            function playCollision() { 
+                if (collision_before.paused) 
+                    collision_before.play(); 
+                else 
+                    collision_before.pause();
+                if (collision_after.paused) 
+                    collision_after.play(); 
+                else 
+                    collision_after.pause(); 
+            }
+        </script> 
 
-                
-            <li>Road Editor tooling for adapting the traffic light system to allow signals to be duplicated and placed according to Highways regulations. Added vehicle types and created tooling
-                for ensuring realistic distributions. distribution generated by the road editor and represent by the client. Created tooling for the pathfinding and came up with some tricks 
-                bespoke to the geometry of the road network to tune relative traffic density between parts of the road network.
-            </li>
-            <img src="TrafficLightTools.png" width="1200px" alt="Unity Editor tooling to configure traffic lights.">
-                
-            <li></li>
+        <p>
+            Road Editor tooling for adapting the traffic light system to allow signals to be duplicated and placed according to Highways regulations. Added vehicle types and created tooling
+            for ensuring realistic distributions. distribution generated by the road editor and represent by the client. Created tooling for the pathfinding and came up with some tricks 
+            bespoke to the geometry of the road network to tune relative traffic density between parts of the road network.
+        </p>
+        <img src="TrafficLightTools.png" width="1200px" alt="Unity Editor tooling to configure traffic lights.">
 
-        </ul>
         <h3>Prototype Load Modeller</h3>
-        <p> Creating realistic looking traffic on a fictional road network proved challenging in lieu of data on traffic density. For upcoming data based projects we prototyped
+        <p>
+            Creating realistic looking traffic on a fictional road network proved challenging in lieu of data on traffic density. For upcoming data based projects we prototyped
             a traffic load modeller that could create SUMO traffic based on hourly transition rates of either roads between intersections or turns taken at intersections
         </p>
+    </article>
     </div>
     <!--h3>General skills</h3>
     <ul>
