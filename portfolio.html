@@ -1,0 +1,125 @@
+<!doctype html><!--!DOCTYPE html-->
+<html>
+    <head>
+    <meta charset="UTF-8">
+    <title>Portf-O-lio</title>
+    <link rel="stylesheet" href="style.css">
+    <link href='https://fonts.googleapis.com/css?family=EB Garamond' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Benne' rel='stylesheet'>
+
+    <link href='https://fonts.googleapis.com/css?family=Young Serif' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Amarante' rel='stylesheet'>
+
+    <link href='https://fonts.googleapis.com/css?family=Faculty Glyphic' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=League Spartan' rel='stylesheet'>
+  </head>
+  <body>
+    <div class="centering">
+        <ul>
+            <li class="split"><h1>VR Portfolio</h1></li>
+            <li><a href="cv.html">CV</a></li>
+            <li><a href="publications.html">Publications</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+        </ul> 
+
+        <article>
+        <h2>Driving Simulator</h2>
+        <p>Intro here about networked mixed reality driving simulator. Unity client built in C# visualising and interactive with a SUMO simulation run by a Python server.</p>
+        <h3>Aesthetic realism</h3>
+        <p>
+            Improved the realistic appearance of traffic by introducing various vehicle types into the SUMO simulation and ensuring their appropriate representation on the client. I made improvements
+            to the pathfinding algorithm to provide better control over the tunability of the traffic, employing tricks bespoke to the road networks geometry where possible, ensuring realistic looking 
+            traffic on a fictional but Highways regulations [DMRB & ????] compliant road network. I implemented vehicle lights taking information all the way from the SUMO simulation to the shaders. 
+
+        </p>
+        <h3>Vehicle kinematics</h3>    
+        <p>
+            I improved the realism of the motion of the traffic. Building on the system in place for interpolating position and speed between the sparse data of the simulation (every 0.2 seconds) I 
+            implemented realistic vehicle kinematics including ones dragging trailers. Whereas in usual treatments of this problem give the motion and rotation of the vehicle chasis as a function of
+            the motion of the wheels, due to the information available the motion and the wheels and rotation of the chasis had to be infered from its motion. Solved the problem with mathematical tricker
+            and implemented the solution as performant code in Unity's Jobs system.
+        </p>
+        <div class="inline-video">
+
+            <video id ="kinematics_trailer" width="600" autoplay>
+                <source src="kinematics_trailer_cropped_trimmed.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <video id ="kinematics_van" width="600" autoplay>
+                <source src="kinematics_van_cropped.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <br><br>
+        <button onclick="playKinematics()">Play/Pause</button>
+        <script> 
+            var kinematics_trailer = document.getElementById("kinematics_trailer");
+            var collision_after = document.getElementById("kinematics_van");
+            
+            function playKinematics() { 
+                if (kinematics_trailer.paused) 
+                kinematics_trailer.play(); 
+                else 
+                kinematics_trailer.pause();
+                if (kinematics_van.paused) 
+                kinematics_van.play(); 
+                else 
+                kinematics_van.pause(); 
+            }
+        </script> 
+        
+        <h3>Collision avoidance</h3>
+        <p>
+            The novelty of MXT's use of SUMO was as a real time interactive tool. On account of having to interpolate paths splines between the sparse data the client saw a game state 0.5sec behind that
+            of the simulation. Game breakign artefacts arising as a result were solved with client side collision detection. Working in collaboration with our lead developer we built a system
+            to detect impending collisions and slow the offending vehciles along their paths computed by the SUMO simulation with it being able to take input at runtime. I created the automated test scenes
+            and implemented the necessary communication between the simulation run on the server and the interactive visualisation run by the client while my colleague implemented collision detection.
+        </p>
+        <div class="inline-video">
+
+            <video id ="collision_before" width="600" autoplay>
+                <source src="collision_before_trimmed.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <video id ="collision_after" width="600" autoplay>
+                <source src="collision_after_trimmed.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <br>
+        <button onclick="playCollision()">Play/Pause</button>
+        <script> 
+            var collision_before = document.getElementById("collision_before");
+            var collision_after = document.getElementById("collision_after");
+            
+            function playCollision() { 
+                if (collision_before.paused) 
+                    collision_before.play(); 
+                else 
+                    collision_before.pause();
+                if (collision_after.paused) 
+                    collision_after.play(); 
+                else 
+                    collision_after.pause(); 
+            }
+        </script> 
+        <h3>Editor tooling</h3>
+        <p>
+            Alongisde aforementioned work on the traffic creation functionality of our Road Editor tool I helped maintain, debug & develop the its road network editing functionality. In particular
+            I adapted the traffic light system to allow signals to be duplicated and placed according to Highways [PROPER NAME OF CH8 HERE] regulations.
+        </p>
+        <img src="TrafficLightTools.png" width="1200px" alt="Unity Editor tooling to configure traffic lights.">
+        <figcaption>
+            The traffic light editing tool in MXT's Road Editor. It allows for secondary signal heads to be which show the same signal as it's corresponding primary signal head but can 
+            be placed in accordance with Highways regulations
+        </figcaption>
+
+        <h2>Prototype Load Modeller</h2>
+        <p>
+            The environment for the Driving Simulator was created from Lidar data of a region in teh Lake District. The road network itself was however finctional through DMRB [& OTHER ORGANISATIONS HERE]
+            compliant. We began work on an updated road editing tool for the data based creation of road networks. As part of this in a joint effort with our lead developer we developed a tool for generating
+            SUMO traffic based on measured traffic density.
+        </p>
+  </body>
+</html>
+
