@@ -15,19 +15,24 @@
   </head>
   <body>
     <div class="centering">
-        <ul>
-            <li class="split"><img src="smallerskull.gif" height="60px" alt="Fuck yeah!"></li>
-            <li class="split"><h1>VR Portfolio</h1></li>
-            <li><a href="cv.html">CV</a></li>
-            <li><a href="publications.html">Publications</a></li>
-            <li><a href="portfolio.html">Portfolio</a></li>
-        </ul> 
-
+        <nav>
+            <ul>
+                <li class="split"><img src="smallerskull.gif" height="60px" alt="Fuck yeah!"></li>
+                <li class="split"><h1>VR Portfolio</h1></li>
+                <li><a href="cv.html">CV</a></li>
+                <li><a href="publications.html">Publications</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+            </ul> 
+        </nav>
+            
         <article>
         <h2>Driving Simulator</h2>
-        <p><a href="https://www.mxt.co.uk">MXT</a>'s driving simulator is a networked system with a Python server running a SUMO simulation and a Unity client, written in C#, interfacing with a motion rig.
+        <p>
+            <a href="https://www.mxt.co.uk">MXT</a>'s driving simulator is a networked system with a Python server running a SUMO simulation and a Unity client, written in C#, interfacing with a motion rig.
             In its most recent incarantion it has been adapted into a desktop experience. It has analytics capabilities including gaze tracking, the possibility of ECG monitoring and vehicle path tracking.
             It has been used in several <a href="https://www.mxt.co.uk/case-studies/dhs/">driver response studies</a> by <a href="https://www.arup.com/">ARUP</a> and <a href="https://www.wsp.com/">WSP</a>.
+            Our in-house Road Editor tool also built in Unity allowed for the creation of road networks compliant with the <a href="https://www.standardsforhighways.co.uk/dmrb">Design Manual for Roads and 
+            Bridges</a> and the <a href="https://www.gov.uk/government/publications/traffic-signs-manual">Traffic Signs manual</a>.
         </p>
         <div class="inline-video">
 
@@ -53,7 +58,7 @@
         <p>
             Improved the realistic appearance of traffic by introducing various vehicle types into the SUMO simulation and ensuring their appropriate representation on the client. I made improvements
             to the pathfinding algorithm to provide better control over the tunability of the traffic, employing tricks bespoke to the road networks geometry where possible, ensuring realistic looking 
-            traffic on a fictional but Highways regulations [DMRB & ????] compliant road network. I implemented vehicle lights taking information all the way from the SUMO simulation to the shaders. 
+            traffic on a fictional road network that is nevertheless  I implemented vehicle lights taking information all the way from the SUMO simulation to the shaders. 
 
         </p>
         <h3>Vehicle kinematics</h3>    
@@ -130,7 +135,7 @@
         <h3>Editor tooling</h3>
         <p>
             Alongisde aforementioned work on the traffic creation functionality of our Road Editor tool I helped maintain, debug & develop the its road network editing functionality. In particular
-            I adapted the traffic light system to allow signals to be duplicated and placed according to Highways [PROPER NAME OF CH8 HERE] regulations.
+            I adapted the traffic light system to allow signals to be duplicated and placed according to regulations laid out in Chapter 8 of the Traffic Signs Manual.
         </p>
         <img src="TrafficLightTools.png" width="1200px" alt="Unity Editor tooling to configure traffic lights.">
         <figcaption>
@@ -140,7 +145,7 @@
 
         <h2>Prototype Load Modeller</h2>
         <p>
-            The environment for the Driving Simulator was created from Lidar data of a region in teh Lake District. The road network itself was however finctional through DMRB [& OTHER ORGANISATIONS HERE]
+            The environment for the Driving Simulator was created from Lidar data of a region in the Lake District. The road network itself was however finctional through DMRB [& OTHER ORGANISATIONS HERE]
             compliant. We began work on an updated road editing tool for the data based creation of road networks. As part of this in a joint effort with our lead developer we developed a tool for generating
             SUMO traffic based on measured traffic density.
         </p>
