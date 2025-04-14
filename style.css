@@ -20,10 +20,10 @@ div.centering {
     /*
     display: inline-block;
     text-align: left;
+    */
     max-width: 1200px;
     min-width: 400px;
-    */
-    width: 1200px;
+    /*width: 1200px;*/
     margin: auto;
 }
 
