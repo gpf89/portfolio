@@ -25,7 +25,30 @@
 
         <article>
         <h2>Driving Simulator</h2>
-        <p>Intro here about networked mixed reality driving simulator. Unity client built in C# visualising and interactive with a SUMO simulation run by a Python server.</p>
+        <p><a href="https://www.mxt.co.uk">MXT</a>'s driving simulator is a networked system with a Python server running a SUMO simulation and a Unity client, written in C#, interfacing with a motion rig.
+            In its most recent incarantion it has been adapted into a desktop experience. It has analytics capabilities including gaze tracking, the possibility of ECG monitoring and vehicle path tracking.
+            It has been used in several <a href="https://www.mxt.co.uk/case-studies/dhs/">driver response studies</a> by <a href="https://www.arup.com/">ARUP</a> and <a href="https://www.wsp.com/">WSP</a>.
+        </p>
+        <div class="inline-video">
+
+            <video id ="driving_rig" width="600" autoplay>
+                <source src="EvolvedDrivingRigFeb2025.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <br><br>
+        <button onclick="playRig()">Play/Pause</button>
+        <script> 
+            var driving_rig = document.getElementById("driving_rig");
+            
+            function playRig() { 
+                if (driving_rig.paused) 
+                driving_rig.play(); 
+                else 
+                driving_rig.pause();
+            }
+        </script>
+
         <h3>Aesthetic realism</h3>
         <p>
             Improved the realistic appearance of traffic by introducing various vehicle types into the SUMO simulation and ensuring their appropriate representation on the client. I made improvements
