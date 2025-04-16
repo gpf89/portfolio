@@ -1,3 +1,4 @@
+/*** Text formating ***/
 * {
     color: white;
     background-color: black;
@@ -7,44 +8,6 @@ body {
     font-family: 'League Spartan';
 }
 
-
-div.centering {
-    max-width: 1200px;
-    min-width: 400px;
-    margin: auto;
-}
-
-.two-columns {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-}
-
-.driving-rig-video {
-    width: 100%;
-}
-
-div.inline-video {
-    display : flex;
-    flex-direction: row;
-}
-
-  
-.embedded-media {
-    border: 2px dotted rgb(96 139 168);
-    display: flex;
-    align-items: flex-start;
-}
-
-.embedded-media .text {
-    flex: 0;
-    padding: 10px;
-}
-
-.embedded-media .video {
-    flex: 1;
-    padding: 10px;
-}
 
 h2 {
     text-align: center;
@@ -68,6 +31,23 @@ a:link {
 }
 a:visited {
     color: lightyellow;
+}
+
+/*** Layout formating ***/
+div.centering {
+    max-width: 1200px;
+    min-width: 400px;
+    margin: auto;
+}
+
+.two-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.driving-rig-video {
+    width: 100%;
 }
 
 li.split {
