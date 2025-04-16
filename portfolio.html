@@ -35,7 +35,8 @@
                     In its most recent incarantion it has been adapted into a desktop experience. It has analytics capabilities including gaze tracking, the possibility of ECG monitoring and vehicle path tracking.
                     It has been used in several <a href="https://www.mxt.co.uk/case-studies/dhs/">driver response studies</a> by <a href="https://www.arup.com/">ARUP</a> and <a href="https://www.wsp.com/">WSP</a>.
                     Our in-house Road Editor tool also built in Unity allowed for the creation of road networks compliant with the <a href="https://www.standardsforhighways.co.uk/dmrb">Design Manual for Roads and 
-                    Bridges</a> and the <a href="https://www.gov.uk/government/publications/traffic-signs-manual">Traffic Signs manual</a>.
+                    Bridges</a> and the <a href="https://www.gov.uk/government/publications/traffic-signs-manual">Traffic Signs manual</a>. While the road network is fictional the environment was created based on 
+                    Lidar data of a region in the Lake District.
                 </p>
             </div>
             <div class="intro-video">
@@ -48,9 +49,11 @@
             <div>
                 <!--  the empty vertical space -->
             </div>
-            <div>
+            <div class="figure-caption">
                 <p style="margin-bottom: 0px">
-                    <b>Right:</b> An MXT promo video showcasing the desktop iteration of the Driving Simulator.
+                    <b>Right:</b> An MXT 
+                    <a href="https://www.linkedin.com/posts/tobypettinger_drivingsimulator-userresearch-humancentreddesign-ugcPost-7298315113432838145-zcoG?utm_source=share&utm_medium=member_desktop&rcm=ACoAAB_3rCMBS5PyWrY1Tmfg1KBu1_F0zUvrIT4">
+                    promo video</a> of the desktop iteration of the Driving Simulator.
                 </p>
             </div>
 
@@ -76,7 +79,7 @@
                     <source src="kinematics_trailer_cropped_trimmed.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
-                <p>
+                <p class="figure-caption">
                     <b>Trailers:</b> A test drive of the simlistic trailer kinematics. The trail of red and blue rays mark the path traced out by the pivot, where the trailer and the car join, and the mid-point 
                     of the rear axles respectively. This is implemented mechanism makes intuitive sense and looks right but is mathematically not rigorous. Between each frame the motion of the rear axle is along
                     the straight line connecting its previous position and the new position of the pivot.
@@ -87,7 +90,7 @@
                     <source src="kinematics_van_cropped.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
-                <p>
+                <p class="figure-caption">
                     <b>Rigid vehicles:</b> Sending one of the longer vehicles on a test run alon ga spline that involves simultaneous vertical and horizontal changes in direction to ensure that there are no artefacts 
                     arising out of the non-commutativity of rotations about different axes. The trail of magenta and cyan rays mark the positions of the front and rear axles respectively. Here a mathematically 
                     rigorous approach is implemented based on the turnign circles set by the axis of the wheels.
@@ -108,7 +111,7 @@
                     <source src="collision_before_trimmed.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
-                <p>
+                <p class="figure-caption">
                     <b>Before:</b> The driver vehicle is suddnely placed in front of the SUMO traffic vehicle. On account of the 0.5sec time lag as the SUMO simulation is concerned the driver is behind the 
                     SUMO vehicle. Hence it appears to not take it into account. The gizmos show the impending collision being detected by the client.
                 </p>
@@ -118,7 +121,7 @@
                     <source src="collision_after_trimmed.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
-                <p>
+                <p class="figure-caption">
                     <b>After:</b> The offneding vehicle is slowed down by the client avoiding the collision. The cyan spheres show the SUMO vehicles buffered positions. At this point in development the change in 
                     the SUMO vehicles state is not communicated to the simulation hence the vehicle is forced to ride the end of its buffered positions. 
                 </p>
@@ -131,7 +134,7 @@
             I adapted the traffic light system to allow signals to be duplicated and placed according to regulations laid out in Chapter 8 of the Traffic Signs Manual.
         </p>
         <img src="TrafficLightTools.png" width="100%" alt="Unity Editor tooling to configure traffic lights.">
-        <figcaption>
+        <figcaption class="figure-caption">
             The traffic light editing tool in MXT's Road Editor. It allows for secondary signal heads to be which show the same signal as it's corresponding primary signal head but can 
             be placed in accordance with Highways regulations
         </figcaption>
@@ -139,19 +142,17 @@
 
         <h2>LOOP</h2>
         <p>
-            Redesign of the in-house <b>Ro</b>ad <b>E</b>ditor 
-        </p>
-        <p>
-            Oriented towards data based creation of existing and proposed road netowrk and infrastructure.
-        </p>
-        <p>
-            OpenDRIVE standard instead fo exporting to SUMO directly. Transaction system / libOpenDrive
+            LOOP was a redesing of the in-house <b>Ro</b>ad <b>E</b>ditor tool. Whereas the previous tool was suited to creating fictional road networks from scratch LOOP was oriented towards data 
+            based creation of existing and proposed road network and infrastructure. It used the OpenDRIVE standard for serializing road networks and interacted with libOpenDrive via a transaction system. 
+            In the absence of traffic density data it proved challenging to create realistic traffic without resorting to tools and methods bespoke to the road network geometry. As part of this new road network 
+            creation tool I prototyped, in a joint effort with our lead developer, a tool for generating SUMO traffic that approximates measured traffic density on its real life counterpart.
         </p>
         <h3>Prototype Load Modeller</h3>
         <p>
-            The environment for the Driving Simulator was created from Lidar data of a region in the Lake District. The road network itself was however finctional through DMRB [& OTHER ORGANISATIONS HERE]
-            compliant. We began work on an updated road editing tool for the data based creation of road networks. As part of this in a joint effort with our lead developer we developed a tool for generating
-            SUMO traffic based on measured traffic density.
+            Traffic density on a road network can be specified in two basic ways. Either one can specify how many vehicles traverse any given road in the network per hour or the transition rate at each intersection 
+            for each turn that can be taken with the latter providing more realistic traffic should the entire trajectory of the vehicle be followed in the simulation. We achieved this by representing the transition 
+            rates at each juntion as a matrix of numbers and defining adjacency between the matrices. This way we could randomly generates pick routes decrementing the appropriate entry in each matrix as that jucntion 
+            is traversed. 
         </p>
   </body>
 </html>

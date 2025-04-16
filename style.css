@@ -17,6 +17,10 @@ p {
     text-align: justify;
 }
 
+.figure-caption {
+    font-size: 90%;
+}
+
 a.nav-link:link {
     color: white;
 }
@@ -42,7 +46,7 @@ div.centering {
 
 .two2one-columns {
     display: grid;
-    grid-template-columns: 1.5fr 1fr;
+    grid-template-columns: 1.3fr 1fr;
     grid-template-rows: 1fr auto 0.2fr;
     gap: 10px;
 }
