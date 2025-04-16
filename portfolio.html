@@ -28,7 +28,7 @@
             
         <article>
         <h2>Driving Simulator</h2>
-        <div class="two-columns">
+        <div class="two2one-columns">
             <div>
                 <p style="margin-top: 0px">
                     <a href="https://www.mxt.co.uk">MXT</a>'s driving simulator is a networked system with a Python server running a SUMO simulation and a Unity client, written in C#, interfacing with a motion rig.
@@ -38,13 +38,23 @@
                     Bridges</a> and the <a href="https://www.gov.uk/government/publications/traffic-signs-manual">Traffic Signs manual</a>.
                 </p>
             </div>
-            <div>
+            <div class="intro-video">
+                <!-- <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7298315113432838145?collapsed=1" style="width: 100%" frameborder="0" allowfullscreen="" title="Embedded post"></iframe> -->
                 <video class="driving-rig-video" controls>
                     <source src="EvolvedDrivingRigFeb2025.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
             </div>
+            <div>
+                <!--  the empty vertical space -->
             </div>
+            <div>
+                <p style="margin-bottom: 0px">
+                    <b>Right:</b> An MXT promo video showcasing the latest desktop iteration of the Driving Simulator.
+                </p>
+            </div>
+
+        </div>
 
         <h3>Aesthetic realism</h3>
         <p>
@@ -66,12 +76,22 @@
                     <source src="kinematics_trailer_cropped_trimmed.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
+                <p>
+                    <b>Trailers:</b> A test drive of the simlistic trailer kinematics. The trail of red and blue rays mark the path traced out by the pivot, where the trailer and the car join, and the mid-point 
+                    of the rear axles respectively. This is implemented mechanism makes intuitive sense and looks right but is mathematically not rigorous. Between each frame the motion of the rear axle is along
+                    the straight line connecting its previous position and the new position of the pivot.
+                </p>
             </div>
             <div>
                 <video class="driving-rig-video" controls>
                     <source src="kinematics_van_cropped.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
+                <p>
+                    <b>Rigid vehicles:</b> Sending one of the longer vehicles on a test run alon ga spline that involves simultaneous vertical and horizontal changes in direction to ensure that there are no artefacts 
+                    arising out of the non-commutativity of rotations about different axes. The trail of magenta and cyan rays mark the positions of the front and rear axles respectively. Here a mathematically 
+                    rigorous approach is implemented based on the turnign circles set by the axis of the wheels.
+                </p>
             </div>
         </div>
         
@@ -88,12 +108,20 @@
                     <source src="collision_before_trimmed.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
+                <p>
+                    <b>Before:</b> The driver vehicle is suddnely placed in front of the SUMO traffic vehicle. On account of the 0.5sec time lag as the SUMO simulation is concerned the driver is behind the 
+                    SUMO vehicle. Hence it appears to not take it into account. The gizmos show the impending collision being detected by the client.
+                </p>
             </div>
             <div>
                 <video class="driving-rig-video" controls>
                     <source src="collision_after_trimmed.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
+                <p>
+                    <b>After:</b> The offneding vehicle is slowed down by the client avoiding the collision. The cyan spheres show the SUMO vehicles buffered positions. At this point in development the change in 
+                    the SUMO vehicles state is not communicated to the simulation hence the vehicle is forced to ride the end of its buffered positions. 
+                </p>
             </div>
         </div>
         
