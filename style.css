@@ -23,10 +23,12 @@ p {
 
 a.nav-link:link {
     color: white;
+    padding: 10px;
 }
 
 a.nav-link:visited {
     color:white;
+    padding: 10px;
 }
 
 a:link {
@@ -73,9 +75,9 @@ div.centering {
 
 li.split {
     float: left;
-}
+} */
   
-nav ul {
+/* nav ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -88,11 +90,50 @@ nav ul li {
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
-}
+} */
   
+.two-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
 
+.driving-rig-video {
+    width: 100%;
+}
 
+.top-bar {
+    display: flex;
+    align-items: center;
+    position: sticky;
+    top: 0;
+}
 
+.left-nav {
+    display: flex;
+    align-items: center;
+}
 
+.centre-nav {
+    flex-grow: 1;
+}
 
+.right-nav {
+    display: block flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-list-item {
+    /* display: block;
+    text-align: center;
+    margin: 0;
+    padding: 0; */
+    display: contents;
+}
+
+.nav-link {
+    display: block;
+}
     
