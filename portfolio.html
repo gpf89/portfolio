@@ -28,32 +28,23 @@
             
         <article>
         <h2>Driving Simulator</h2>
-        <p>
-            <a href="https://www.mxt.co.uk">MXT</a>'s driving simulator is a networked system with a Python server running a SUMO simulation and a Unity client, written in C#, interfacing with a motion rig.
-            In its most recent incarantion it has been adapted into a desktop experience. It has analytics capabilities including gaze tracking, the possibility of ECG monitoring and vehicle path tracking.
-            It has been used in several <a href="https://www.mxt.co.uk/case-studies/dhs/">driver response studies</a> by <a href="https://www.arup.com/">ARUP</a> and <a href="https://www.wsp.com/">WSP</a>.
-            Our in-house Road Editor tool also built in Unity allowed for the creation of road networks compliant with the <a href="https://www.standardsforhighways.co.uk/dmrb">Design Manual for Roads and 
-            Bridges</a> and the <a href="https://www.gov.uk/government/publications/traffic-signs-manual">Traffic Signs manual</a>.
-        </p>
-        <div class="inline-video">
-
-            <video id ="driving_rig" width="600" autoplay>
-                <source src="EvolvedDrivingRigFeb2025.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-        </div>
-        <br><br>
-        <button onclick="playRig()">Play/Pause</button>
-        <script> 
-            var driving_rig = document.getElementById("driving_rig");
-            
-            function playRig() { 
-                if (driving_rig.paused) 
-                driving_rig.play(); 
-                else 
-                driving_rig.pause();
-            }
-        </script>
+        <div class="two-columns">
+            <div>
+                <p style="margin-top: 0px">
+                    <a href="https://www.mxt.co.uk">MXT</a>'s driving simulator is a networked system with a Python server running a SUMO simulation and a Unity client, written in C#, interfacing with a motion rig.
+                    In its most recent incarantion it has been adapted into a desktop experience. It has analytics capabilities including gaze tracking, the possibility of ECG monitoring and vehicle path tracking.
+                    It has been used in several <a href="https://www.mxt.co.uk/case-studies/dhs/">driver response studies</a> by <a href="https://www.arup.com/">ARUP</a> and <a href="https://www.wsp.com/">WSP</a>.
+                    Our in-house Road Editor tool also built in Unity allowed for the creation of road networks compliant with the <a href="https://www.standardsforhighways.co.uk/dmrb">Design Manual for Roads and 
+                    Bridges</a> and the <a href="https://www.gov.uk/government/publications/traffic-signs-manual">Traffic Signs manual</a>.
+                </p>
+            </div>
+            <div>
+                <video class="driving-rig-video" controls>
+                    <source src="EvolvedDrivingRigFeb2025.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            </div>
 
         <h3>Aesthetic realism</h3>
         <p>
@@ -69,34 +60,20 @@
             the motion of the wheels, due to the information available the motion and the wheels and rotation of the chasis had to be infered from its motion. Solved the problem with mathematical tricker
             and implemented the solution as performant code in Unity's Jobs system.
         </p>
-        <div class="inline-video">
-
-            <video id ="kinematics_trailer" width="600" autoplay>
-                <source src="kinematics_trailer_cropped_trimmed.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-            <video id ="kinematics_van" width="600" autoplay>
-                <source src="kinematics_van_cropped.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
+        <div class="two-columns">
+            <div>
+                <video class="driving-rig-video" controls>
+                    <source src="kinematics_trailer_cropped_trimmed.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <div>
+                <video class="driving-rig-video" controls>
+                    <source src="kinematics_van_cropped.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
         </div>
-        <br><br>
-        <button onclick="playKinematics()">Play/Pause</button>
-        <script> 
-            var kinematics_trailer = document.getElementById("kinematics_trailer");
-            var collision_after = document.getElementById("kinematics_van");
-            
-            function playKinematics() { 
-                if (kinematics_trailer.paused) 
-                kinematics_trailer.play(); 
-                else 
-                kinematics_trailer.pause();
-                if (kinematics_van.paused) 
-                kinematics_van.play(); 
-                else 
-                kinematics_van.pause(); 
-            }
-        </script> 
         
         <h3>Collision avoidance</h3>
         <p>
@@ -105,34 +82,21 @@
             to detect impending collisions and slow the offending vehciles along their paths computed by the SUMO simulation with it being able to take input at runtime. I created the automated test scenes
             and implemented the necessary communication between the simulation run on the server and the interactive visualisation run by the client while my colleague implemented collision detection.
         </p>
-        <div class="inline-video">
-
-            <video id ="collision_before" width="600" autoplay>
-                <source src="collision_before_trimmed.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-            <video id ="collision_after" width="600" autoplay>
-                <source src="collision_after_trimmed.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
+        <div class="two-columns">
+            <div>
+                <video class="driving-rig-video" controls>
+                    <source src="collision_before_trimmed.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <div>
+                <video class="driving-rig-video" controls>
+                    <source src="collision_after_trimmed.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
         </div>
-        <br>
-        <button onclick="playCollision()">Play/Pause</button>
-        <script> 
-            var collision_before = document.getElementById("collision_before");
-            var collision_after = document.getElementById("collision_after");
-            
-            function playCollision() { 
-                if (collision_before.paused) 
-                    collision_before.play(); 
-                else 
-                    collision_before.pause();
-                if (collision_after.paused) 
-                    collision_after.play(); 
-                else 
-                    collision_after.pause(); 
-            }
-        </script> 
+        
         <h3>Editor tooling</h3>
         <p>
             Alongisde aforementioned work on the traffic creation functionality of our Road Editor tool I helped maintain, debug & develop the its road network editing functionality. In particular

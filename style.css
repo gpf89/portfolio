@@ -14,6 +14,16 @@ div.centering {
     margin: auto;
 }
 
+.two-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.driving-rig-video {
+    width: 100%;
+}
+
 div.inline-video {
     display : flex;
     flex-direction: row;
