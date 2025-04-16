@@ -70,8 +70,8 @@
         <p>
             I improved the realism of the motion of the traffic. Building on the system in place for interpolating position and speed between the sparse data of the simulation (every 0.2 seconds) I 
             implemented realistic vehicle kinematics including ones dragging trailers. Whereas in usual treatments of this problem give the motion and rotation of the vehicle chasis as a function of
-            the motion of the wheels, due to the information available the motion and the wheels and rotation of the chasis had to be infered from its motion. Solved the problem with mathematical tricker
-            and implemented the solution as performant code in Unity's Jobs system.
+            the motion of the wheels, due to the information available the motion and the wheels and rotation of the chasis had to be infered from its motion. Two physics degrees proved very useful in 
+            solving the problem anaytically and I implemented the solution as performant code in Unity's Jobs system.
         </p>
         <div class="two-columns">
             <div>
@@ -101,7 +101,7 @@
         <h3>Collision avoidance</h3>
         <p>
             The novelty of MXT's use of SUMO was as a real time interactive tool. On account of having to interpolate paths splines between the sparse data the client saw a game state 0.5sec behind that
-            of the simulation. Game breakign artefacts arising as a result were solved with client side collision detection. Working in collaboration with our lead developer we built a system
+            of the simulation. Game breaking artefacts arising as a result were solved with client side collision detection. Working in collaboration with our lead developer we built a system
             to detect impending collisions and slow the offending vehciles along their paths computed by the SUMO simulation with it being able to take input at runtime. I created the automated test scenes
             and implemented the necessary communication between the simulation run on the server and the interactive visualisation run by the client while my colleague implemented collision detection.
         </p>
@@ -142,7 +142,7 @@
 
         <h2>LOOP</h2>
         <p>
-            LOOP was a redesing of the in-house <b>Ro</b>ad <b>E</b>ditor tool. Whereas the previous tool was suited to creating fictional road networks from scratch LOOP was oriented towards data 
+            LOOP was a redesign of the in-house <b>Ro</b>ad <b>E</b>ditor tool. Whereas the previous tool was suited to creating fictional road networks from scratch LOOP was oriented towards data 
             based creation of existing and proposed road network and infrastructure. It used the OpenDRIVE standard for serializing road networks and interacted with libOpenDrive via a transaction system. 
             In the absence of traffic density data it proved challenging to create realistic traffic without resorting to tools and methods bespoke to the road network geometry. As part of this new road network 
             creation tool I prototyped, in a joint effort with our lead developer, a tool for generating SUMO traffic that approximates measured traffic density on its real life counterpart.
