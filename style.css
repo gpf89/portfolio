@@ -54,6 +54,12 @@ div.centering {
     gap: 10px;
 }
 
+.intro-columns {
+    display: grid;
+    grid-template-columns: 1.9fr 1fr;
+    gap: 10px;
+}
+
 .two-columns {
     display: grid;
     grid-template-columns: 1fr 1fr;
