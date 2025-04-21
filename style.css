@@ -60,6 +60,12 @@ div.centering {
     gap: 10px;
 }
 
+.loop-columns {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 10px;
+}
+
 .intro-video {
     grid-row-start: 1;
     grid-row-end: 4;
