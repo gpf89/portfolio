@@ -126,7 +126,7 @@
                     Your browser does not support the video tag.
                 </video>
                 <p class="figure-caption">
-                    <b>After:</b> The offneding vehicle is slowed down by the client avoiding the collision. The cyan spheres show the SUMO vehicles buffered positions. At this point in development the change in 
+                    <b>After:</b> The offending vehicle is slowed down by the client avoiding the collision. The cyan spheres show the SUMO vehicles buffered positions. At this point in development the change in 
                     the SUMO vehicles state is not communicated to the simulation hence the vehicle is forced to ride the end of its buffered positions. 
                 </p>
             </div>
@@ -134,14 +134,31 @@
         
         <h3>Editor tooling</h3>
         <p>
-            Alongisde aforementioned work on the traffic creation functionality of our Road Editor tool I helped maintain, debug & develop the its road network editing functionality. In particular
-            I adapted the traffic light system to allow signals to be duplicated and placed according to regulations laid out in Chapter 8 of the Traffic Signs Manual.
+            Alongisde aforementioned work on the traffic creation functionality of our Road Editor tool I helped maintain, debug & develop the its road network editing functionality. This required extensive faimilarisation
+            with SUMO to know what it's requirements are and how they should be exported. One such piece of work was adapting the traffic light system to allow signals to be duplicated and placed according to regulations 
+            laid out in Chapter 8 of the Traffic Signs Manual and then placing them.
         </p>
         <img src="TrafficLightTools.png" width="100%" alt="Unity Editor tooling to configure traffic lights.">
         <figcaption class="figure-caption">
-            The traffic light editing tool in MXT's Road Editor. It allows for secondary signal heads to be which show the same signal as it's corresponding primary signal head but can 
+            <b>Editor Tools:</b> The traffic light editing tool in MXT's Road Editor. It allows for secondary signal heads to be which show the same signal as it's corresponding primary signal head but can 
             be placed in accordance with Highways regulations
         </figcaption>
+        <p>
+            This had some challenges due to the way SUMO identifies traffic lights as it was only ever intended to encapsulate the logic of traffic lights not their visual representation. SUMO represents the traffic 
+            light state in each phase of the cycle as a string of characters. It identifies traffic lights by the juncitno in which they sit and their position in this string of characters. The the initial implementation 
+            of the traffic light funcitonality in the traffic server and traffic clients used this same representation. The simplest way to extend the system to accommodate secondary signal heads as per the Traffic Signs 
+            Manual was to encode the secondary signal heads as superfluous traffic lights in SUMO. It turns out that SUMO suppoerts this and this was the rest of the system did not nee drefactoring to accommodate the 
+            duplicaiton of traffic lights.   
+        </p>
+        <div>
+            <video class="driving-rig-video" controls>
+                <source src="traffic_lights.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <p class="figure-caption">
+                <b>The result: </b>Multiple traffic lights in the Unity client (left) representing a single traffic light signal in the SUMO simulation (right) accommodating the conditions of visibility set out in the Traffic Signs Manual. 
+            </p>
+        </div>
 
 
         <h2 class="centre-text">LOOP</h2>
