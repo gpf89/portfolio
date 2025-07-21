@@ -147,11 +147,7 @@
                     be placed in accordance with Highways regulations
                 </figcaption>
                 <p>
-                    This had some challenges due to the way SUMO identifies traffic lights as it was only ever intended to encapsulate the logic of traffic lights not their visual representation. SUMO represents the traffic 
-                    light state in each phase of the cycle as a string of characters. It identifies traffic lights by the juncitno in which they sit and their position in this string of characters. The the initial implementation 
-                    of the traffic light funcitonality in the traffic server and traffic clients used this same representation. The simplest way to extend the system to accommodate secondary signal heads as per the Traffic Signs 
-                    Manual was to encode the secondary signal heads as superfluous traffic lights in SUMO. It turns out that SUMO suppoerts this and this was the rest of the system did not nee drefactoring to accommodate the 
-                    duplicaiton of traffic lights.   
+                    This had some challenges due to the way SUMO identifies traffic lights as it was only ever intended to encapsulate the logic of traffic lights not their visual representation. SUMO represents the traffic light state in each phase of the cycle as a string of characters. It identifies traffic lights by the juncitno in which they sit and their position in this string of characters. The the initial implementation of the traffic light funcitonality in the traffic server and traffic clients used this same representation. The simplest way to extend the system to accommodate secondary signal heads as per the Traffic Signs Manual was to encode the secondary signal heads as superfluous traffic lights in SUMO. It turns out that SUMO suppoerts this and this was the rest of the system did not nee drefactoring to accommodate the duplication of traffic lights.   
                 </p>
                 <div>
                     <video class="driving-rig-video" controls>
@@ -166,10 +162,7 @@
         
                 <h2 class="centre-text">LOOP</h2>
                 <p>
-                    LOOP was a redesign of the in-house <b>Ro</b>ad <b>E</b>ditor tool. Whereas the previous tool was suited to creating fictional road networks from scratch LOOP was oriented towards data 
-                    based creation of existing and proposed road network and infrastructure. It used the OpenDRIVE standard for serializing road networks and interacted with libOpenDrive via a transaction system. 
-                    In the absence of traffic density data it proved challenging to create realistic traffic without resorting to tools and methods bespoke to the road network geometry. As part of this new road network 
-                    creation tool I prototyped, in a joint effort with our lead developer, a tool for generating SUMO traffic that approximates measured traffic density on its real life counterpart.
+                    LOOP was a redesign of the in-house <b>Ro</b>ad <b>E</b>ditor tool. Whereas the previous tool was suited to creating fictional road networks from scratch LOOP was oriented towards data based creation of existing and proposed road network and infrastructure. It used the OpenDRIVE standard for serializing road networks and interacted with libOpenDrive via a transaction system. In the absence of traffic density data it proved challenging to create realistic traffic without resorting to tools and methods bespoke to the road network geometry. As part of this new road network creation tool I prototyped, in a joint effort with our lead developer, a tool for generating SUMO traffic that approximates measured traffic density on its real life counterpart.
                 </p>
                 <h3 >Prototype Load Modeller</h3>
         
@@ -201,6 +194,45 @@
             <div class="sideways-heading"><h1>Personal</h1></div>
             <div>
                 <h2 class="centre-text">Meditation Tool</h2>
+                <div class="two2one-columns">
+                    <div>
+                        <p style="margin-top: 0px">
+                            I made a meditation tool for myself mainly as a means to gain some experience of app development for a smarphone and also to go through the entire development cycle all the way from identifying the need to installing it onto a phone.
+                        </p>
+                        <p>
+                            <b>The need:</b> I don't like guided meditations that are very wordy but especially ones that ask questions. I find that they invite thought which is what one wants to get away from in meditation. I just need the occasional reminder to return my attention to my breath when inevitably my attention wanders. There is one <a href="https://www.youtube.com/watch?v=jhQTOG59DSU&t=19s&pp=ygUSa2FkYW1wYSBtZWRpdGF0aW9u">Kadampa video on Youtube</a> that I like. However after getting to know the video a little bit my mind also gets distracted by tracking how far along I am. In other meditation apps I found one could set regularly scheduled reminders. This opens up the same possibility of tracking how far into the meditation I am. I wanted to avoid this possibility.
+                        </p>
+                        <p>
+                            <b>The specs:</b> I wanted to have some configurability but not much because part of the exercise is not to be reliant on the ideal conditions but simply to meditate with some minimal assistance. I did want to have a way to set the frequency of reminders but also not to let the user know exactly what that is. I don't want these to be regularly spaced reminders but instead I want some randomness in the timings and ideally even in the total number of reminders that they produce for any given time period.
+                        </p>
+                        <p>
+                            <b>The implementation:</b> On account of this being quite a small app I settled on having the entire functionality in a single script. This wasn't so much a system architecture exercise as an exercise in building a smartphone app from the ground up. 
+                        </p>
+                        <p>
+                            I didn't have much Unity UI experience when starting this app so I developed the functionality using custom editors (with which I had buckets of experience). I then made the UI for controlling the functionality using YouTube tutorials for tips and guidance.
+                        </p>
+                        <p>
+                            One aspect that I'm particularly proud of is the persistently coloured buttons. It seems that the in-built Unity funcitonality for colouring buttons based on their selection state is buggy and has been for years. When clicking on another UI element the buttons get de-selected. I wrote some methods in my main script to colour the buttons by setting both the normal and selected colours to the colours I want them to have.
+                        </p>
+                        <p>
+                            Thanks to my friend and ex-<a href="https://mxt.co.uk">MXT</a> colleague <a href="https://ezramason.com">Ez</a> for helpful implementation tips and pointing me towards some useful resources.
+                        </p>
+                    </div>
+                    <div class="intro-video">
+                        <video class="driving-rig-video" controls>
+                            <source src="MeditationTool.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <div>
+                        <!--  the empty vertical space -->
+                    </div>
+                    <div class="figure-caption">
+                        <p style="margin-bottom: 0px">
+                            <b>Right:</b> Persistently coloured!
+                        </p>
+                    </div>
+                </div>
             </div>
         </div>
 
