@@ -39,12 +39,10 @@
                 <div class="two2one-columns">
                     <div>
                         <p style="margin-top: 0px">
-                            <a href="https://www.mxt.co.uk">MXT</a>'s driving simulator is a networked system with a Python server running a SUMO simulation and a Unity client, written in C#, interfacing with a motion rig.
-                            In its most recent incarantion it has been adapted into a desktop experience. It has analytics capabilities including gaze tracking, the possibility of ECG monitoring and vehicle path tracking.
-                            It has been used in several <a href="https://www.mxt.co.uk/case-studies/dhs/">driver response studies</a> by <a href="https://www.arup.com/">ARUP</a> and <a href="https://www.wsp.com/">WSP</a>.
-                            Our in-house Road Editor tool also built in Unity allowed for the creation of road networks compliant with the <a href="https://www.standardsforhighways.co.uk/dmrb">Design Manual for Roads and 
-                            Bridges</a> and the <a href="https://www.gov.uk/government/publications/traffic-signs-manual">Traffic Signs manual</a>. While the road network is fictional the environment was created based on 
-                            Lidar data of a region in the Lake District.
+                            <a href="https://www.mxt.co.uk">MXT</a>'s driving simulator is a networked mixed reality system. It has a Python module running a SUMO simulation and a Unity visualisation client, written in C#, interfacing with a motion rig. The Python module runs the SUMO simulation in realtime by running a simulation step every 0.2 seconds. It receives all the updates from the simulation and sends them over to the visualisation client. It also receives updates on the ego vehicle behaviour from the Unity client and updates the simulation so that the simulation is aware of what the driver is doing. It was originally eveloped as a driver training tool for traffic officers so it supports several visualisation clients.
+                        </p>
+                        <p>
+                            While it was originaly implemented in mixed reality with a Varjor headset in its most recent incarantion it has been adapted into a desktop experience. It has analytics capabilities including gaze tracking, the possibility of ECG monitoring and vehicle path tracking. It has been used in several <a href="https://www.mxt.co.uk/case-studies/dhs/">driver response studies</a> by <a href="https://www.arup.com/">ARUP</a> and <a href="https://www.wsp.com/">WSP</a>. Our in-house Road Editor tool also built in Unity allowed for the creation of road networks compliant with the <a href="https://www.standardsforhighways.co.uk/dmrb">Design Manual for Roads and Bridges</a> and the <a href="https://www.gov.uk/government/publications/traffic-signs-manual">Traffic Signs manual</a>. While the road network is fictional the environment was created based on         Lidar data of a region in the Lake District.
                         </p>
                     </div>
                     <div class="intro-video">
